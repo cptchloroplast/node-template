@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/*",
-    "copy-assets": "ts-node tools/copyAssets",
-    "generate-keys": "ts-node tools/generateKeys",
+    "copy-assets": "ts-node scripts/copyAssets",
+    "generate-keys": "ts-node scripts/generateKeys",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "tsc": "tsc",
     "build": "npm-run-all clean lint tsc copy-assets",

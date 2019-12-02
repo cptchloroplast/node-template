@@ -1,6 +1,8 @@
 import { generateKeyPair } from "crypto";
 import fs from "fs";
 
+const path = __dirname + "/../src/assets";
+
 generateKeyPair("rsa", {
     modulusLength: 2048,
     publicKeyEncoding: {
@@ -15,6 +17,9 @@ generateKeyPair("rsa", {
     if (err) {
         return;
     }
-    fs.writeFileSync(__dirname + "/../src/assets/public.key", publicKey);
-    fs.writeFileSync(__dirname + "/../src/assets/private.key", privateKey);
+    if (!fs.existsSync(path)) {
+      fs.mkdirSync(path);
+    }
+    fs.writeFileSync(path + "/public.key", publicKey);
+    fs.writeFileSync(path + "/private.key", privateKey);
 });
